@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LevelGUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI goldText;
-    [SerializeField] private TextMeshProUGUI wallText;
+    [SerializeField] private Slider wallHealthBar;
 
     private Bank bank;
     private Wall wall;
@@ -30,6 +31,7 @@ public class LevelGUI : MonoBehaviour
 
     private void ShowWallUI(int val)
     {
-        wallText.text = $"Wall Health = {val}";
+        float health = val / 100f;
+        wallHealthBar.value = health;
     }
 }

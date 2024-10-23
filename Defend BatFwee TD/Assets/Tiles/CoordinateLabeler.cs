@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-[ExecuteAlways]
+[ExecuteAlways, RequireComponent(typeof(TextMeshPro))]
 public class CoordinateLabeler : MonoBehaviour
 {
     [SerializeField] private int snapValue;
@@ -30,7 +30,7 @@ public class CoordinateLabeler : MonoBehaviour
             UpdateObjectName();
         }
 
-        ColorCoordinates();
+        SetLabelColor();
         ToggleLabels();
     }
 
@@ -47,7 +47,7 @@ public class CoordinateLabeler : MonoBehaviour
         transform.parent.name = coordinate.ToString();
     }
 
-    private void ColorCoordinates()
+    private void SetLabelColor()
     {
         if (!waypoint.IsPlaceable)
         {

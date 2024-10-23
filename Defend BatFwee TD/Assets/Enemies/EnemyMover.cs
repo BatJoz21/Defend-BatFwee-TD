@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] private List<Waypoint> path = new List<Waypoint>();
@@ -25,26 +26,27 @@ public class EnemyMover : MonoBehaviour
     {
         path.Clear();
 
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
-        foreach (GameObject waypoint in waypoints)
+        GameObject parent = GameObject.FindGameObjectWithTag("Path");
+        foreach (Transform child in parent.transform)
         {
-            path.Add(waypoint.GetComponent<Waypoint>());
-        }
+            Waypoint waypoint = child.GetComponent<Waypoint>();
 
-        /*
-        GameObject waypointParent = GameObject.FindGameObjectWithTag("Path");
-        Transform[] waypointChildren = waypointParent.GetComponentsInChildren<Transform>();
-
-        foreach (Transform waypoin in waypointChildren)
-        {
-            path.Add(waypoin.gameObject.GetComponent<Waypoint>());
+            if (waypoint != null)
+            {
+                path.Add(waypoint);
+            }
         }
-        */
     }
 
     private void ReturnToStart()
     {
         transform.position = path[0].transform.position;
+    }
+
+    private void FinishPath()
+    {
+        enemy.Detonate();
+        gameObject.SetActive(false);
     }
 
     private IEnumerator FollowPath()
@@ -65,7 +67,6 @@ public class EnemyMover : MonoBehaviour
             }
         }
 
-        enemy.Detonate();
-        gameObject.SetActive(false);
+        FinishPath();
     }
 }

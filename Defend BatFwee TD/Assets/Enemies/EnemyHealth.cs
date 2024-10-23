@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHitPoint = 15;
+    [SerializeField] private int maxHitPoint = 5;
+    [SerializeField] private int difficultyRamp = 0;
 
     private int currentHitPoint;
     private Enemy enemy;
@@ -16,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnEnable()
     {
-        currentHitPoint = maxHitPoint;
+        currentHitPoint = maxHitPoint + difficultyRamp;
     }
 
     private void OnParticleCollision(GameObject other)

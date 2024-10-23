@@ -6,7 +6,7 @@ public class TargetLocator : MonoBehaviour
 {
     [SerializeField] private Transform weapon;
     [SerializeField] private float range = 15f;
-    [SerializeField] private ParticleSystem[] turretBullets;
+    [SerializeField] private ParticleSystem turretBullet;
 
     private Transform target;
 
@@ -52,10 +52,7 @@ public class TargetLocator : MonoBehaviour
 
     private void Attack(bool val)
     {
-        foreach (ParticleSystem bullet in turretBullets)
-        {
-            var bulletEmission = bullet.GetComponent<ParticleSystem>().emission;
-            bulletEmission.enabled = val;
-        }
+        var bulletEmission = turretBullet.GetComponent<ParticleSystem>().emission;
+        bulletEmission.enabled = val;
     }
 }
