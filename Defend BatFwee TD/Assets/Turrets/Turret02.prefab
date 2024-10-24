@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 2502243320477150126}
-  range: 15
+  range: 25
   turretBullet: {fileID: 5135357925334471905}
 --- !u!114 &-6269733152371419629
 MonoBehaviour:
