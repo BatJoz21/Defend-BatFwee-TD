@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bd19db6074a694098c45930c4fc8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 75
+  cost: 50
 --- !u!4 &4939755878287615317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8172108345718197511, guid: 4063295e4c703164a899864faf273f02, type: 3}
