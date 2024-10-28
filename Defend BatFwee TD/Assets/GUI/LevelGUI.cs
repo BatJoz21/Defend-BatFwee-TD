@@ -8,6 +8,7 @@ public class LevelGUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private Slider wallHealthBar;
+    [SerializeField] private GameObject optionCanvas;
 
     private Bank bank;
     private Wall wall;
@@ -33,5 +34,10 @@ public class LevelGUI : MonoBehaviour
     {
         float health = val / 100f;
         wallHealthBar.value = health;
+    }
+
+    public void OpenOption()
+    {
+        optionCanvas.SetActive(true);
     }
 }
