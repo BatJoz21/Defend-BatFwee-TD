@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7419049019239946960}
-  range: 25
+  range: 40
   turretBullet: {fileID: 2228533637724343424}
 --- !u!114 &624214889621801853
 MonoBehaviour:

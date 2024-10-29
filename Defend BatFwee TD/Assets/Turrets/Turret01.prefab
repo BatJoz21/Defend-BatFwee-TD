@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 4939755878287615317}
-  range: 25
+  range: 20
   turretBullet: {fileID: 8432839958830197694}
 --- !u!114 &-4415386891753161271
 MonoBehaviour:
@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 66808512618332966, guid: 6b8fe22e69e3b6a41b46098dfaf2c4a0, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1335133185180637903, guid: 6b8fe22e69e3b6a41b46098dfaf2c4a0, type: 3}
       propertyPath: m_Name

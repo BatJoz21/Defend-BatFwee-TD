@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2502243320477150126}
     m_Modifications:
+    - target: {fileID: 66808512618332966, guid: 6b8fe22e69e3b6a41b46098dfaf2c4a0, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1335133185180637903, guid: 6b8fe22e69e3b6a41b46098dfaf2c4a0, type: 3}
       propertyPath: m_Name
       value: Bullet
@@ -156,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 2502243320477150126}
-  range: 25
+  range: 30
   turretBullet: {fileID: 5135357925334471905}
 --- !u!114 &-6269733152371419629
 MonoBehaviour:
