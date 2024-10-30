@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private int playerElimTotal = 0;
 
+    public bool isOpeningOption = false;
+
     public int SelectedTurret { get => selectedTurret; }
     public int PlayerElimTotal { get => playerElimTotal; set => playerElimTotal = value; }
 

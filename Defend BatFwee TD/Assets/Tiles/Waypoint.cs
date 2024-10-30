@@ -26,7 +26,7 @@ public class Waypoint : MonoBehaviour
             turretNum = 0;
         }
 
-        if (isPlaceable)
+        if (isPlaceable && !gameManager.isOpeningOption)
         {
             bool isPlaced = turretPrefab[turretNum].CreateTurret(turretPrefab[turretNum], transform.position);
             isPlaceable = !isPlaced;

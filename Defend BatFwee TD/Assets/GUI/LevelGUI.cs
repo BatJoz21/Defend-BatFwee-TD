@@ -48,5 +48,6 @@ public class LevelGUI : MonoBehaviour
     public void OpenOption()
     {
         optionCanvas.SetActive(true);
+        gameManager.isOpeningOption = true;
     }
 }
