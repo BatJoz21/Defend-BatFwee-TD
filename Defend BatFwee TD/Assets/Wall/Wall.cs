@@ -7,12 +7,14 @@ public class Wall : MonoBehaviour
     [SerializeField] private int wallHealth = 100;
 
     private GameManager gameManager;
+    private AudioManager audioManager;
 
     public int WallHealth { get => wallHealth; }
 
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void DamagingWall(int damage)
@@ -23,6 +25,7 @@ public class Wall : MonoBehaviour
         }
         else
         {
+            audioManager.PlaySFX(1);
             gameManager.GameOver();
         }
     }

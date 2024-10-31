@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int difficultyRamp = 2;
 
     private GameManager gameManager;
+    private AudioManager audioManager;
     private int currentHitPoint;
     private Enemy enemy;
 
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         gameManager = FindObjectOfType<GameManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void OnEnable()
@@ -31,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
     private void ProcessHit()
     {
         currentHitPoint--;
+        audioManager.PlaySFX(0);
         if (currentHitPoint <= 0)
         {
             maxHitPoint += difficultyRamp;
