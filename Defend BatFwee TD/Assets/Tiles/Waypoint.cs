@@ -6,30 +6,47 @@ public class Waypoint : MonoBehaviour
 {
     [SerializeField] private Turret[] turretPrefab;
     [SerializeField] private bool isPlaceable;
+    [SerializeField] private GameObject parentForTurret;
     public bool IsPlaceable { get => isPlaceable; }
-    private GameManager gameManager;
+    private LevelManager levelManager;
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
+    }
+
+    void Start()
+    {
+        if (IsPlaceable)
+        {
+            SetTurretsParent();
+        }
     }
 
     private void OnMouseDown()
     {
         int turretNum;
-        if (gameManager != null)
+        if (levelManager != null)
         {
-            turretNum = gameManager.SelectedTurret;
+            turretNum = levelManager.SelectedTurret;
         }
         else
         {
             turretNum = 0;
         }
 
-        if (isPlaceable && !gameManager.isOpeningOption)
+        if (isPlaceable && !levelManager.isOpeningOption)
         {
             bool isPlaced = turretPrefab[turretNum].CreateTurret(turretPrefab[turretNum], transform.position);
             isPlaceable = !isPlaced;
+        }
+    }
+
+    private void SetTurretsParent()
+    {
+        foreach (Turret turret in turretPrefab)
+        {
+            turret.turretsParent = parentForTurret;
         }
     }
 }

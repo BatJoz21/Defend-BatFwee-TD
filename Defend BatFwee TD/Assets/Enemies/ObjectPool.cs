@@ -9,11 +9,11 @@ public class ObjectPool : MonoBehaviour
     [SerializeField, Range(0.1f, 30f)] private float spawnTimer = 1f;
 
     private GameObject[] pool;
-    private GameManager gameManager;
+    private LevelManager levelManager;
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
         PopulatePool();
     }
 

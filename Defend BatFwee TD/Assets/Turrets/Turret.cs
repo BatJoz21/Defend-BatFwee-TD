@@ -5,6 +5,8 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     [SerializeField] private int cost = 75;
+    
+    public GameObject turretsParent;
 
     public bool CreateTurret(Turret turret, Vector3 position)
     {
@@ -16,7 +18,8 @@ public class Turret : MonoBehaviour
 
         if (bank.CurrentBalance >= cost)
         {
-            Instantiate(turret.gameObject, position, Quaternion.identity);
+            GameObject tur = Instantiate(turret.gameObject, position, Quaternion.identity);
+            tur.transform.SetParent(turretsParent.transform);
             bank.Withdraw(cost);
             return true;
         }

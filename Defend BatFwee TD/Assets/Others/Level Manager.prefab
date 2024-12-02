@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3047998296825519188}
   - component: {fileID: 6074742219361866823}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524dd0ddd5ad82f448279e25fd36fdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedTurret: 0
+  playerElimTarget: 10
+  levelCompleteCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  isOpeningOption: 0
+  isLevelOver: 0

@@ -9,15 +9,16 @@ public class LevelGUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI elimText;
     [SerializeField] private Slider wallHealthBar;
-    [SerializeField] private GameObject optionCanvas;
+    [SerializeField] private OptionGUI optionCanvas;
 
-    private GameManager gameManager;
+    private LevelManager levelManager;
     private Bank bank;
     private Wall wall;
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
+        optionCanvas = FindObjectOfType<OptionGUI>();
         bank = FindObjectOfType<Bank>();
         wall = FindObjectOfType<Wall>();
     }
@@ -26,7 +27,7 @@ public class LevelGUI : MonoBehaviour
     {
         ShowGoldUI(bank.CurrentBalance);
         ShowWallUI(wall.WallHealth);
-        ShowElimUI(gameManager.PlayerElimTotal);
+        ShowElimUI(levelManager.PlayerElimTotal);
     }
 
     private void ShowGoldUI(int val)
@@ -47,7 +48,6 @@ public class LevelGUI : MonoBehaviour
 
     public void OpenOption()
     {
-        optionCanvas.SetActive(true);
-        gameManager.isOpeningOption = true;
+        optionCanvas.OpenOption();
     }
 }

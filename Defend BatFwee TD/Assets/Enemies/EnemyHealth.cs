@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxHitPoint = 2;
     [SerializeField] private int difficultyRamp = 2;
 
-    private GameManager gameManager;
+    private LevelManager levelManager;
     private AudioManager audioManager;
     private int currentHitPoint;
     private Enemy enemy;
@@ -16,13 +16,17 @@ public class EnemyHealth : MonoBehaviour
     void Awake()
     {
         enemy = GetComponent<Enemy>();
-        gameManager = FindObjectOfType<GameManager>();
-        audioManager = FindObjectOfType<AudioManager>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     void OnEnable()
     {
         currentHitPoint = maxHitPoint;
+    }
+
+    void Update()
+    {
+        SetUpAudioManager();
     }
 
     private void OnParticleCollision(GameObject other)
@@ -33,13 +37,24 @@ public class EnemyHealth : MonoBehaviour
     private void ProcessHit()
     {
         currentHitPoint--;
-        audioManager.PlaySFX(0);
+        if (audioManager != null)
+        {
+            audioManager.PlaySFX(0);
+        }
         if (currentHitPoint <= 0)
         {
             maxHitPoint += difficultyRamp;
             gameObject.SetActive(false);
-            gameManager.PlayerElimTotal++;
+            levelManager.PlayerElimTotal++;
             enemy.RewardGold();
+        }
+    }
+
+    private void SetUpAudioManager()
+    {
+        if (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
         }
     }
 }

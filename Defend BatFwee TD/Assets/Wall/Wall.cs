@@ -6,15 +6,20 @@ public class Wall : MonoBehaviour
 {
     [SerializeField] private int wallHealth = 100;
 
-    private GameManager gameManager;
+    private LevelManager levelManager;
     private AudioManager audioManager;
 
     public int WallHealth { get => wallHealth; }
 
     void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
         audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    void Update()
+    {
+        CheckInstance();
     }
 
     public void DamagingWall(int damage)
@@ -26,7 +31,16 @@ public class Wall : MonoBehaviour
         else
         {
             audioManager.PlaySFX(1);
-            gameManager.GameOver();
+            levelManager.GameOver();
+        }
+    }
+
+    private void CheckInstance()
+    {
+        if (audioManager == null || levelManager == null)
+        {
+            levelManager = FindObjectOfType<LevelManager>();
+            audioManager = FindObjectOfType<AudioManager>();
         }
     }
 }

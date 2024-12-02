@@ -5,9 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GameOverGUI : MonoBehaviour
 {
+    [SerializeField] private GameObject nextLevelButton;
+
+    private int currentScene;
+
+    void Start()
+    {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        int maxSceneIndex = SceneManager.sceneCountInBuildSettings;
+        if(currentScene == maxSceneIndex)
+        {
+            nextLevelButton.SetActive(false);
+        }
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(currentScene + 1);
+    }
     public void RestartLevel()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
     }
 

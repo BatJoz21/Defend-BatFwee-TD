@@ -7,18 +7,21 @@ using UnityEngine.UI;
 
 public class OptionGUI : MonoBehaviour
 {
+    [SerializeField] private GameObject optionCanvas;
     [SerializeField] private TextMeshProUGUI bgmVolTxt;
     [SerializeField] private TextMeshProUGUI sfxVolTxt;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
 
+    private static OptionGUI instance;
     private AudioManager audioManager;
-    private GameManager gameManager;
+    private LevelManager levelManager;
 
     void Awake()
     {
+        ManageOption();
         audioManager = FindObjectOfType<AudioManager>();
-        gameManager = FindObjectOfType<GameManager>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     void Update()
@@ -62,30 +65,66 @@ public class OptionGUI : MonoBehaviour
         }
     }
 
-    public void CloseOption()
+    public void OpenOption()
     {
-        gameObject.SetActive(false);
-        if (gameManager != null)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            gameManager.isOpeningOption = false;
+            optionCanvas.SetActive(true);
         }
         else
         {
-            gameManager = FindObjectOfType<GameManager>();
+            if (levelManager != null)
+            {
+                optionCanvas.SetActive(true);
+                levelManager.isOpeningOption = true;
+            }
+            else
+            {
+                levelManager = FindObjectOfType<LevelManager>();
+            }
+        }
+    }
+
+    public void CloseOption()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            optionCanvas.SetActive(false);
+        }
+        else
+        {
+            if (levelManager != null)
+            {
+                optionCanvas.SetActive(false);
+                levelManager.isOpeningOption = false;
+            }
+            else
+            {
+                levelManager = FindObjectOfType<LevelManager>();
+            }
         }
     }
 
     public void BackToMenu()
     {
-        if (gameManager != null)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            gameManager.isOpeningOption = false;
+            optionCanvas.SetActive(false);
+            SceneManager.LoadScene(0);
         }
         else
         {
-            gameManager = FindObjectOfType<GameManager>();
+            if (levelManager != null)
+            {
+                levelManager.isOpeningOption = false;
+                optionCanvas.SetActive(false);
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                levelManager = FindObjectOfType<LevelManager>();
+            }
         }
-        SceneManager.LoadScene(0);
     }
 
     private void SetVisual()
@@ -95,5 +134,19 @@ public class OptionGUI : MonoBehaviour
 
         bgmSlider.value = audioManager.Bgm.volume;
         sfxSlider.value = audioManager.TurretSound.volume;
+    }
+
+    private void ManageOption()
+    {
+        if (instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

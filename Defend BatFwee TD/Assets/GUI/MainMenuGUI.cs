@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuGUI : MonoBehaviour
 {
-    [SerializeField] private GameObject optionsCanvas;
+    [SerializeField] private OptionGUI optionsCanvas;
+
+    void Awake()
+    {
+        optionsCanvas = FindObjectOfType<OptionGUI>();
+    }
 
     public void NextScene(int sceneNum)
     {
@@ -14,6 +19,6 @@ public class MainMenuGUI : MonoBehaviour
 
     public void OpenOption()
     {
-        optionsCanvas.SetActive(true);
+        optionsCanvas.OpenOption();
     }
 }
