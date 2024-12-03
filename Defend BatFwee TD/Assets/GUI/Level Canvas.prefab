@@ -328,6 +328,10 @@ MonoBehaviour:
   elimText: {fileID: 7550991275442593658}
   wallHealthBar: {fileID: 5666293677021259203}
   optionCanvas: {fileID: 0}
+  turretActiveSymbols:
+  - {fileID: 5344725327563109667}
+  - {fileID: 5829657880710729769}
+  - {fileID: 848004598809736666}
 --- !u!1 &2634129549300659363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1452,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1564,6 +1568,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
   m_PrefabInstance: {fileID: 3273384926140703664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &848004598809736666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2785988259976549994, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
+  m_PrefabInstance: {fileID: 3273384926140703664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7819822156201665353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1572,21 +1581,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 377339651332386734}
     m_Modifications:
-    - target: {fileID: 187225758923561602, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_text
-      value: Turret 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1069660843394146679, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1606,7 +1607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1660,46 +1661,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTurret
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3253951449304573832, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_text
-      value: 50 Gold
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8192464042212408970, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_Name
       value: Turret UI
@@ -1712,6 +1673,11 @@ PrefabInstance:
 --- !u!224 &5070580982705620113 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
+  m_PrefabInstance: {fileID: 7819822156201665353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5344725327563109667 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2785988259976549994, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
   m_PrefabInstance: {fileID: 7819822156201665353}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8524974875639432771
@@ -1736,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1756,7 +1722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1839,6 +1805,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
+      propertyPath: m_text
+      value: 75 Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631520436797526068, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
       propertyPath: m_fontSize
       value: 20
       objectReference: {fileID: 0}
@@ -1859,6 +1829,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
+--- !u!1 &5829657880710729769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2785988259976549994, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
+  m_PrefabInstance: {fileID: 8524974875639432771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6671255067791352219 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3088277851798251480, guid: 7a7fdb2acc544844cb87569f730bcdc4, type: 3}
