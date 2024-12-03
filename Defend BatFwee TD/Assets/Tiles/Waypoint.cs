@@ -7,6 +7,8 @@ public class Waypoint : MonoBehaviour
     [SerializeField] private Turret[] turretPrefab;
     [SerializeField] private bool isPlaceable;
     [SerializeField] private GameObject parentForTurret;
+    [SerializeField] private ParticleSystem spawnCircle;
+
     public bool IsPlaceable { get => isPlaceable; }
     private LevelManager levelManager;
 
@@ -17,9 +19,15 @@ public class Waypoint : MonoBehaviour
 
     void Start()
     {
+        var spawnCircleEmision = spawnCircle.emission;
         if (IsPlaceable)
         {
             SetTurretsParent();
+            spawnCircleEmision.enabled = true;
+        }
+        else
+        {
+            spawnCircle.gameObject.SetActive(false);
         }
     }
 
@@ -39,6 +47,7 @@ public class Waypoint : MonoBehaviour
         {
             bool isPlaced = turretPrefab[turretNum].CreateTurret(turretPrefab[turretNum], transform.position);
             isPlaceable = !isPlaced;
+            spawnCircle.gameObject.SetActive(false);
         }
     }
 

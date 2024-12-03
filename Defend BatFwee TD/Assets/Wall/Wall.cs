@@ -24,11 +24,8 @@ public class Wall : MonoBehaviour
 
     public void DamagingWall(int damage)
     {
-        if (wallHealth > 0)
-        {
-            wallHealth -= damage;
-        }
-        else
+        wallHealth -= damage;
+        if (wallHealth <= 0)
         {
             audioManager.PlaySFX(1);
             levelManager.GameOver();

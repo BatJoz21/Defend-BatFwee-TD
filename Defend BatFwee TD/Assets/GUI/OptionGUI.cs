@@ -129,8 +129,11 @@ public class OptionGUI : MonoBehaviour
 
     private void SetVisual()
     {
-        bgmVolTxt.text = (audioManager.Bgm.volume * 100).ToString();
-        sfxVolTxt.text = (audioManager.TurretSound.volume * 100).ToString();
+        int bgmVal = (int)(audioManager.Bgm.volume * 100);
+        int sfxVal = (int)(audioManager.TurretSound.volume * 100);
+
+        bgmVolTxt.text = bgmVal.ToString();
+        sfxVolTxt.text = sfxVal.ToString();
 
         bgmSlider.value = audioManager.Bgm.volume;
         sfxSlider.value = audioManager.TurretSound.volume;
